@@ -11,12 +11,14 @@ It will be supported by any browser.
 First, in order to use this plugin, you need to load it in your header, after you loaded the last version of jquery.
 Once this first step is done, you have to write a command in your script to launch the plugin.
 
-
-$(document).ready(function(){
-	$('body').detect_mail({
+<pre>
+<code>
+	$(document).ready(function(){
+		$('body').detect_mail({
+		});
 	});
-});
-
+</code>
+</pre>
 
 <h1>Options</h1>
 
