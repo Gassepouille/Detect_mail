@@ -1,6 +1,6 @@
 <h1>detect_mail.js</h1>
 
-detect_mailis a Jquery plugin for mail detection among your website.
+detect_mail is a Jquery plugin for mail detection among your website.
 This plugin relies on the Jquery librairy that you have to load  before using detect_mail.js
 
 It will be supported by any browser.
@@ -13,7 +13,7 @@ Once this first step is done, you have to write a command in your script to laun
 
 
 $(document).ready(function(){
-	$('body').fizz({
+	$('body').detect_mail({
 	});
 });
 
