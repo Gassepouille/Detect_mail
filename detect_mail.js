@@ -1,6 +1,6 @@
 (function($){
 	$.fn.detect_mail= function(options){
-		//---------------------------------------------------------------------------------------------------------------------------------------------------------options par défauts
+		//--------------------------------------------------------------------------------options par dï¿½fauts
 		var settings=$.extend({
 			popup : false,
 			newtab : false,
@@ -11,12 +11,13 @@
 			backgroundColorhover : "#ddd",
 			mailcolor : "#000",
 			mailstyle : "italic",
+			textShadow : "1px 1px 1px #fff",
 		}, options);
 		
 		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 		
 		
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------recherche des mails dans tout le body			
+		//-----------------------------------------------------------------recherche des mails dans tout le body			
 			
 			$(this).each(function(){
 				var enfants=$(this).children();
@@ -64,7 +65,7 @@
 				} 
 			});  
 			
-			//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------recursive pour trouver les mails esseulés
+			//----------------------------------------------recursive pour trouver les mails esseulï¿½s
 			
 			recursive($(this));
 			
@@ -91,7 +92,7 @@
 				}
 			}
 			
-		//------------------------------------------------------------------------------------------------------------------------------------------------------------css du mail	
+		//--------------------------------------------------------------------------css du mail	
 		
 			$(".mail").css({
 				fontStyle : settings.mailstyle,
@@ -105,16 +106,16 @@
 		
 		
 		
-		//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------fonction de click
+		//----------------------------------------------------------fonction de click
 		$("body").on("click", ".mail" , function(e){
-		//---------------------------------------------------------------------------------------------------------------------------------------------------------------reset du menu des webmessageries
+		//------------------------------------------------------reset du menu des webmessageries
 			$("#mailMenu").remove();
 			
 		
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------récupération du mail dans une variable
+		//----------------------------------------------------------rï¿½cupï¿½ration du mail dans une variable
 			var selectedMail=$(this).text();
 		
-		//---------------------------------------------------------------------------------------------------------------------------------------------------------------------création du menu 
+		//--------------------------------------------------------------crï¿½ation du menu 
 			var mailmenu=document.createElement("div");
 			
 			$(mailmenu).css({
@@ -129,7 +130,7 @@
 				boxShadow : "2px 2px 2px #444"		
 			}).attr('id','mailMenu');
 			$("body").append(mailmenu);
-			//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------Gestion du popup			
+			//---------------------------------------------------------Gestion du popup			
 					
 			
 			if(settings.popup==true){
@@ -152,12 +153,12 @@
 					
 				
 			}else{
-				//-----------------------------------------------------------------------------------------------------------------------------------------------------------------création des liens vers la webmessagerie
+				//------------------------crï¿½ation des liens vers la webmessagerie
 				var selectedMailMenu= "<a id='menuGmail' href='https://mail.google.com/mail/?view=cm&fs=1&tf=1&to="+selectedMail+"'>Gmail</a><a id='menuHotmail' href='http://hotmail.com/default.aspx?rru=compose&to="+selectedMail+"'>Hotmail</a><a id='menuYahoo' href='http://compose.mail.yahoo.com/?To="+selectedMail+"/'>Yahoo</a>";
 
 			}
 			$("#mailMenu").append(selectedMailMenu);
-			// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------css du menu créé
+			// ----------------------------------------------------------------------css du menu crï¿½ï¿½
 			$("#menuGmail").css({
 					width : "120px",
 					height : "23px",
@@ -169,7 +170,7 @@
 					paddingLeft : "10px",
 					color : settings.color,
 					fontWeight : "bold",
-					textShadow: "1px 1px 1px #fff",
+					textShadow: settings.textShadow,
 					border : "1px solid #888",
 					borderRadius: "2px",
 					fontFamily : "Arial",
@@ -190,7 +191,7 @@
 					paddingLeft : "10px",
 					paddingTop : "3px",	
 					color : settings.color,
-					textShadow: "1px 1px 1px #fff",
+					textShadow: settings.textShadow,
 					border : "1px solid #888",
 					borderRadius: "2px",
 					fontWeight : "bold",
@@ -210,7 +211,7 @@
 					paddingLeft : "10px",
 					paddingTop : "3px",
 					color : settings.color ,
-					textShadow: "1px 1px 1px #fff",
+					textShadow: settings.textShadow,
 					border : "1px solid #888",
 					borderRadius: "2px",
 					fontWeight : "bold",
@@ -221,7 +222,7 @@
 			});
 			
 			
-			//-------------------------------------------------------------------------------------------------------------------------------------------------------------CSS du hover
+			//--------------------------------------------------------------------------------CSS du hover
 			
 			$("#menuGmail").hover(
 			  function () {
@@ -251,7 +252,7 @@
 		});
 
 		
-		//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------suppression du menu si click à coté 
+		//---------------------------------------------------------suppression du menu si click ï¿½ cotï¿½ 
 		
 		$("body").click(function(){
 			$("#mailMenu").remove();
